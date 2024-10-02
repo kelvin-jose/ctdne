@@ -21,3 +21,23 @@ with open(dataset, 'r') as file:
 graph = nx.MultiDiGraph()
 graph.add_edges_from(edges)
 
+train_percent = 0.75
+
+train_edges = []
+pos_edges = []
+neg_edges = []
+
+# train and test data split 
+for node in tqdm(graph.nodes):
+    out_edges = graph.edges(node, data=True)
+    if not out_edges:
+        continue
+    out_edges = sorted(out_edges, key=lambda x: x[2]['timestamp']) # sorting data in the ascending order of edge times
+    last_train_idx = int(len(out_edges) * train_percent) # 75% of data is used for training
+    train_edges.extend(out_edges[:last_train_idx])
+    pos_edges.extend(out_edges[last_train_idx:]) # 25% data is used for testing (positive examples)
+
+    neighbors = set(graph.neighbors(node))
+    non_neighbors = set(graph.nodes).difference(neighbors)
+    neg_nodes = random.sample(sorted(non_neighbors), len(out_edges[last_train_idx:])) # generating same 25% negative data for testing
+    neg_edges.extend([(node, nnode)for nnode in neg_nodes])
