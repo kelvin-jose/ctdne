@@ -45,7 +45,7 @@ def get_train_test_data(graph: nx.Graph) -> Tuple[List, List, List]:
     return train_edges, pos_edges, neg_edges
 
 # save data to disk
-def pickle_data(data: List, filename: str) -> None:
+def pickle_data(filename: str, data: List) -> None:
     with open(filename, 'wb') as file:
         pickle.dump(data, file)
     print(f'[x] pickled data dumped to: {filename}')
