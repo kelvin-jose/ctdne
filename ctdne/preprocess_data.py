@@ -41,3 +41,13 @@ for node in tqdm(graph.nodes):
     non_neighbors = set(graph.nodes).difference(neighbors)
     neg_nodes = random.sample(sorted(non_neighbors), len(out_edges[last_train_idx:])) # generating same 25% negative data for testing
     neg_edges.extend([(node, nnode)for nnode in neg_nodes])
+
+# writing train - test data to disk
+with open('../datasets/collegemsg/train_edges.pkl', 'wb') as file:
+    pickle.dump(train_edges, file)
+
+with open('../datasets/collegemsg/positive_edges.pkl', 'wb') as file:
+    pickle.dump(pos_edges, file)
+
+with open('../datasets/collegemsg/negative_edges.pkl', 'wb') as file:
+    pickle.dump(neg_edges, file)
