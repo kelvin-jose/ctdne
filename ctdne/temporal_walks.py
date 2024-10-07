@@ -14,3 +14,8 @@ with open(train_edges_file, 'rb') as te:
 # graph from edge info
 graph = nx.MultiDiGraph()
 graph.add_edges_from(train_edges)
+
+N = len(graph.nodes)
+omega = 10 # context window size
+L = 80 # max length of walk
+beta = 25 * N * (L - omega + 1)
