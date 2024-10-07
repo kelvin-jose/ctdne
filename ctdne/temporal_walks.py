@@ -24,6 +24,7 @@ C = 0
 temporal_walks = []
 edges = list(graph.edges(data=True))
 
+# temporal walk algorithm implementation
 while beta - C > 0:
     walk = []
     first_edge = random.sample(edges, k=1) # unbiased first edge 
@@ -43,3 +44,10 @@ while beta - C > 0:
     if len(walk) >= omega:
         temporal_walks.append(walk)
         C += len(walk) - omega + 1
+
+
+temporal_walks_file = '../datasets/collegemsg/temporal_walks.pkl'
+
+# writing walks into disk
+with open(temporal_walks_file, 'wb') as file:
+    pickle.dump(temporal_walks, file)
