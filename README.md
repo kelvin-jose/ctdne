@@ -9,7 +9,6 @@ This repository contains the code for the CTDNE method, as described in the pape
 - [File Descriptions](#file-descriptions)
 - [Results](#results)
 - [References](#references)
-- [License](#license)
 
 ## Abstract
 This codebase provides tools for preprocessing temporal network data, generating temporal walks, and training embeddings. It includes implementations for data splitting, embedding training using Word2Vec, and model evaluation using logistic regression.
@@ -54,3 +53,9 @@ python train_and_eval.py
     - Loads positive and negative edge datasets for evaluation.
     - Prepares evaluation data and trains a logistic regression model.
     - Outputs the accuracy of the model.
+
+## Results
+The accuracy of the logistic regression model trained on the embeddings will be printed to the console upon execution of ```bash train_and_eval.py```.
+
+## References
+1. [Continuous-Time Dynamic Network Embeddings](https://dl.acm.org/doi/fullHtml/10.1145/3184558.3191526)
