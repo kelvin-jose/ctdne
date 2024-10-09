@@ -21,7 +21,7 @@ To run this code, you will need Python 3.x and the following packages:
 pip install networkx tqdm gensim scikit-learn
 ```
 ## Usage
-1. <h5>Preprocess Data</h5>: Run preprocess_data.py to load your dataset and split it into training, positive, and negative edges.
+1. Preprocess Data: Run preprocess_data.py to load your dataset and split it into training, positive, and negative edges.
 
 ```bash
 python preprocess_data.py
@@ -37,3 +37,21 @@ python temporal_walks.py
 ```bash
 python train_and_eval.py
 ```
+
+## File Descriptions
+
+    preprocess_data.py:
+        Reads a raw dataset file and converts it into an edge list.
+        Splits the graph edges into training, positive testing, and negative testing datasets.
+        Saves the processed data to disk using pickle.
+
+    temporal_walks.py:
+        Loads training edges and constructs a graph.
+        Generates temporal walks based on the edges and timestamps, adhering to a specified context window size and maximum walk length.
+        Saves the generated walks to disk.
+
+    train_and_eval.py:
+        Loads temporal walks and trains a Word2Vec model to create embeddings.
+        Loads positive and negative edge datasets for evaluation.
+        Prepares evaluation data and trains a logistic regression model.
+        Outputs the accuracy of the model.
