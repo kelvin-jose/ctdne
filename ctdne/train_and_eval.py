@@ -48,3 +48,8 @@ trainX, testX, trainy, testy = train_test_split(eval_dataX, eval_datay, test_siz
 # model training for evalution
 model = LogisticRegression()
 model.fit(trainX, trainy)
+
+# prediction using trained model
+preds = model.predict(testX)
+acc = accuracy_score(preds, testy)
+print('[x] accuracy of the model: {acc}')
