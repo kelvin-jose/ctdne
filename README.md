@@ -21,7 +21,7 @@ To run this code, you will need Python 3.x and the following packages:
 pip install networkx tqdm gensim scikit-learn
 ```
 ## Usage
-1. Preprocess Data: Run preprocess_data.py to load your dataset and split it into training, positive, and negative edges.
+1. <h5>Preprocess Data</h5>: Run preprocess_data.py to load your dataset and split it into training, positive, and negative edges.
 
 ```bash
 python preprocess_data.py
