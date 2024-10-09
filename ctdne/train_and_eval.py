@@ -28,3 +28,14 @@ with open(pos_edges_file, 'rb') as pfile, open(neg_edges_file, 'rb') as nfile:
     pos_edges = pickle.load(pfile)
     neg_edges = pickle.load(nfile)
 
+# data prep for evaluation
+eval_dataX = []
+eval_datay = []
+keys = w2v.wv.key_to_index.keys()
+
+for positive, negative in list(zip(pos_edges, neg_edges)):
+    if positive[0] in keys and negative[0] in keys and positive[1] in keys and negative[1] in keys:
+        eval_dataX.append((w2v.wv.get_vector(positive[0]) + w2v.wv.get_vector(positive[1]))/2)
+        eval_dataX.append((w2v.wv.get_vector(negative[0]) + w2v.wv.get_vector(negative[1]))/2)
+        eval_datay.extend([1,0])
+
