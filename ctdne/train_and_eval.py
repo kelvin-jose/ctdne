@@ -1,5 +1,8 @@
 import pickle
 from gensim.models import Word2Vec
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 temporal_walks_file = '../datasets/collegemsg/temporal_walks.pkl'
 
@@ -39,3 +42,9 @@ for positive, negative in list(zip(pos_edges, neg_edges)):
         eval_dataX.append((w2v.wv.get_vector(negative[0]) + w2v.wv.get_vector(negative[1]))/2)
         eval_datay.extend([1,0])
 
+# train - test split 
+trainX, testX, trainy, testy = train_test_split(eval_dataX, eval_datay, test_size = 0.1, stratify = eval_datay)
+
+# model training for evalution
+model = LogisticRegression()
+model.fit(trainX, trainy)
