@@ -38,24 +38,24 @@ python train_and_eval.py
 ```
 
 ## File Descriptions
-1. preprocess_data.py:
+1. ```preprocess_data.py```:
     - Reads a raw dataset file and converts it into an edge list.
     - Splits the graph edges into training, positive testing, and negative testing datasets.
     - Saves the processed data to disk using pickle.
 
-2. temporal_walks.py:
+2. ```temporal_walks.py```:
     - Loads training edges and constructs a graph.
     - Generates temporal walks based on the edges and timestamps, adhering to a specified context window size and maximum walk length.
     - Saves the generated walks to disk.
 
-3. train_and_eval.py:
+3. ```train_and_eval.py```:
     - Loads temporal walks and trains a Word2Vec model to create embeddings.
     - Loads positive and negative edge datasets for evaluation.
     - Prepares evaluation data and trains a logistic regression model.
     - Outputs the accuracy of the model.
 
 ## Results
-The accuracy of the logistic regression model trained on the embeddings will be printed to the console upon execution of ```bash train_and_eval.py```.
+The accuracy of the logistic regression model trained on the embeddings will be printed to the console upon execution of ```train_and_eval.py```.
 
 ## References
 1. [Continuous-Time Dynamic Network Embeddings](https://dl.acm.org/doi/fullHtml/10.1145/3184558.3191526)
