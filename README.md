@@ -2,6 +2,9 @@
 
 This repository contains the code for the CTDNE method, as described in the paper [Continuous-Time Dynamic Network Embeddings](https://dl.acm.org/doi/fullHtml/10.1145/3184558.3191526). The code implements a framework for generating dynamic network embeddings using temporal walks and evaluates the embeddings with a logistic regression classifier.
 
+
+If you are interested to do a deep dive into the paper, I have this [blog post](https://medium.com/@kelvinjose/continuous-time-dynamic-network-embeddings-4d3dd0ac9aaa) ready for you.
+
 ## Table of Contents
 - [Abstract](#abstract)
 - [Installation](#installation)
