@@ -19,3 +19,21 @@ To run this code, you will need Python 3.x and the following packages:
 
 ```bash
 pip install networkx tqdm gensim scikit-learn
+```
+## Usage
+1. Preprocess Data: Run preprocess_data.py to load your dataset and split it into training, positive, and negative edges.
+
+```bash
+python preprocess_data.py
+```
+
+2. Generate Temporal Walks: Execute temporal_walks.py to create temporal walks from the training edges.
+```bash
+python temporal_walks.py
+```
+
+3. Train and Evaluate the Model: Finally, run train_and_eval.py to train a logistic regression model and evaluate its performance.
+
+```bash
+python train_and_eval.py
+```
